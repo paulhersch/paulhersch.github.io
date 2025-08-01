@@ -3,6 +3,10 @@ languageCode = 'de-de'
 title = 'Cool Website'
 theme = 'retro'
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [menu]
     [[menu.main]]
         name = "Index"
