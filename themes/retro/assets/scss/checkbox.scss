@@ -1,0 +1,30 @@
+@use 'colors';
+
+input[type="checkbox"] {
+  /* remove defaults */
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: colors.$eggshell;
+  margin: 0;
+  /* base style */
+  font: inherit;
+  color: colors.$black;
+  width: 0.8em;
+  height: 0.8em;
+  border: 0.15em solid colors.$black;
+  transform: translateX(-0.1em);
+  display: inline-grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: .8em;
+  height: .8em;
+  box-shadow: inset 1em 1em colors.$black;
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

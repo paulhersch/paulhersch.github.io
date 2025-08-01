@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        <div class="fullcover" id="bg"> </div>
+        <div class="fullcover" id="letterbox">
+            <div id="content-wrapper">
+            <header>
+                <div class="nav-box">
+                    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+                    <div class="nav-filler">
+                    </div>
+                    <div id="toggler-group">
+                        <label for="animation-toggle">Animations</label>
+                        <input type="checkbox" id="animation-toggle">
+                    </div>
+                </div>
+            </header>
+            <div id="main-align">
+                <div id="main-content">
+                    {{ block "main" . }}{{ end }}
+                </div>
+                <footer>
+                    {{ partial "footer.html" . }}
+                </footer>
+            </div>
+            </div>
+        </div>
+        <dialog id="consent-box">
+            <form method=dialog id="consent-form">
+                <p>
+                    This website sets a functional cookie to save user preferences. No 
+                    data is saved by myself. But as this is a Github Pages site Github
+                    might log Your IP.
+                </p>
+                <input type="submit" formmethod="dialog" name="consent" value="I have been informed">
+            </div>
+        </div>
+    </body>
+</html>

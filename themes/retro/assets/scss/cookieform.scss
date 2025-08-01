@@ -1,0 +1,17 @@
+@use 'colors';
+
+#consent-box {
+  background-color: #0003;
+}
+
+#consent-form {
+  position: relative;
+  margin: auto;
+  width: min(500px, 100vw);
+  height: min(300px, 100vh);
+  background-color: colors.$white;
+  padding: 2em;
+}
+
+#consent-form:backdrop {
+}

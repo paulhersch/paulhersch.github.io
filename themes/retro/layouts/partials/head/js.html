@@ -1,0 +1,16 @@
+{{- with resources.Get "js/main.js"
+    | js.Build (dict
+        "minify" "true"
+        "defines" (dict
+            "process.env.NODE_ENV" `"development"`
+        )
+    )
+}}
+  {{- if eq hugo.Environment "development" }}
+      <script src="{{ .RelPermalink }}" defer></script>
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}

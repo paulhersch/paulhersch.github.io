@@ -1,0 +1,16 @@
+{{ $page := .page }}
+{{ $folder := add "/" (collections.Index (strings.Split $page.RelPermalink "/") 1) }}
+<nav>
+    {{/* filler element */}}
+    <div class="nav-item"></div>
+{{ range site.Menus.main }}
+    <a href={{ .URL }} 
+    {{ if (eq $folder (path.Dir .URL))}}
+    class="nav-item__active">
+    {{ else }}
+    class="nav-item">
+    {{ end }}
+        {{ .Name }}
+    </a>
+{{ end }}
+</nav>

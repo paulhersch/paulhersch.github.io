@@ -1,0 +1,43 @@
+@use 'colors';
+
+$nav-bw: 0.1em;
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+header {
+  background-color: colors.$eggshell;
+  padding: 0 0 0 1em;
+  margin: 0 1em 0 0;
+}
+
+.nav-item {
+  padding: 1em .5em 1em 0;
+  flex: 1 1 0;
+  /* border: solid black; */
+  /* border-width: 0 $nav-bw 0 0; */
+}
+
+.nav-item__active {
+  @extend .nav-item;
+  color: black;
+  /* border: solid black; */
+  /* border-width: $nav-bw 0 $nav-bw $nav-bw; */
+  background-color: colors.$white;
+}
+
+.nav-box {
+  display: flex;
+  align-items: start;
+  flex-direction: row;
+}
+
+.nav-filler {
+  /* always grow until space is filled */
+  flex-grow: 1000;
+  min-height: 5px;
+  /* border: solid black; */
+  /* border-width: 0 $nav-bw 0 0; */
+}

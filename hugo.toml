@@ -1,0 +1,16 @@
+baseURL = 'https://example.org/'
+languageCode = 'de-de'
+title = 'Cool Website'
+theme = 'retro'
+
+[menu]
+    [[menu.main]]
+        name = "Index"
+        url = "/"
+    [[menu.main]]
+        name = "Posts"
+        url = "/posts/"
+    [[menu.main]]
+        name = "Thougths"
+        url = "/thoughts/"
+

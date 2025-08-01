@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{/* Check if data.json is available for thought content */}}
+  {{ $data := .Resources.Get "data.json" }}
+  {{ if $data }}
+    {{ $data = $data | transform.Unmarshal }}
+    {{ range $d := $data }}
+      <div class="tweet">
+        <span style="font-size: 8pt;"> {{ time.AsTime $d.timestamp | time.Format "January 2, 2006" }} </span>
+        <p> {{ $d.message }} </p>
+      </div>
+    {{ end }}
+  {{ else }}
+      {{ range .Pages }}
+        <a href="{{ .RelPermalink }}">
+          <div class="postcard" >
+            <p>{{ .LinkTitle }}</p>
+            <span>{{ .Summary }}</span>
+          </div>
+        </a>
+      {{ end }}
+  {{ end }}
+{{ end }}
