@@ -86,6 +86,8 @@ ENV POETRY_VIRTUALENVS_CREATE=0
 WORKDIR /app
 COPY ./pyproject.toml ./poetry.lock .
 COPY ./<local package> /app/<local package>
+# possible Space savings: only install poetry in the pyinstall stage in the global
+# python env, so that the venv REALLY only has the deps of the program
 RUN python -m venv /venv \
     && bash -c "source /venv/bin/activate && /venv/bin/pip install poetry && /venv/bin/poetry install --no-root"
 
@@ -93,7 +95,8 @@ RUN python -m venv /venv \
 FROM base AS runner 
 
 WORKDIR /app
-# Dateien in Container kopieren
+# Copy Venv files + Project Files into the runner
+# /venv should contain every needed folder at this point
 COPY --from=pyinstall /venv /venv
 COPY ./<project-dir> /app/<project-dir>
 
