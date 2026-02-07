@@ -1,5 +1,6 @@
 {{ $data := resources.Get (.Get "path") }}
 {{ if $data }}
+  <div id="tweet_list_body">
     {{ $data = $data | transform.Unmarshal }}
     {{ range $d := $data }}
       <div class="tweet">
@@ -7,4 +8,5 @@
         <p> {{ $d.message }} </p>
       </div>
     {{ end }}
+  </div>
 {{ end }}

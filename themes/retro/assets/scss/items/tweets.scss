@@ -1,0 +1,14 @@
+@use '../colors';
+
+.tweet {
+  background-color: colors.$eggshell;
+  padding: 1em;
+}
+
+#tweet_list_body > * {
+  margin-top: 10px;
+}
+
+#tweet_list_body > *:first-child {
+  margin-top: 0;
+}

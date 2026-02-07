@@ -11,10 +11,16 @@ theme = 'retro'
     [[menu.main]]
         name = "Index"
         url = "/"
+        weight = 10
     [[menu.main]]
         name = "Posts"
         url = "/posts/"
+        weight = 20
     [[menu.main]]
         name = "Thougths"
         url = "/thoughts/"
-
+        weight = 30
+    [[menu.main]]
+        name = "Games"
+        url = "/games/"
+        weight = 40

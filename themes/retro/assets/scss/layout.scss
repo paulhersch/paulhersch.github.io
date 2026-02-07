@@ -86,26 +86,3 @@ footer {
   border-top: 1px solid colors.$black;
   margin-top: 1rem;
 }
-
-.postcard {
-  min-width: 45vw;
-  background-color: colors.$eggshell;
-  margin: 1em 0;
-  padding: 0.5em;
-}
-
-.postcard > p {
-  font-size: 12pt;
-  line-height: 1.2;
-  color: colors.$black;
-}
-
-.postcard > span {
-  font-size: 10pt;
-  color: colors.$gray;
-}
-
-.tweet {
-  background-color: colors.$eggshell;
-  padding: 1em;
-}
